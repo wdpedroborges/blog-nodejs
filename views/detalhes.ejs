@@ -1,0 +1,35 @@
+<html lang="pt-br">
+<%- include("./partials/head.ejs") %>
+
+<body>
+	<%- include("./partials/nav.ejs") %>
+
+	<div>
+		<h2><%= post.titulo %></h2>
+		<div>
+			<p><%= post.corpo %></p>
+		</div>
+		<a class="deletar" data-doc="<%= post._id %>" href="">Deletar</a>
+	</div>
+
+	<%- include("./partials/footer.ejs") %>
+
+	<script>
+		const deletar = document.querySelector('a.deletar');
+
+		deletar.addEventListener('click', (e) => {
+			const endpoint = `/${deletar.dataset.doc}`;
+
+			console.log(endpoint);
+
+			fetch(endpoint, {
+				method: 'DELETE',
+			})
+			.then(response => response.json())
+			.then(data => window.location.href = data.redirecionamento)
+			.catch(err => console.log(err));
+		});
+		
+	</script>
+</body>
+</html>

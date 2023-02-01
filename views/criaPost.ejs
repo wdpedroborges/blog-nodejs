@@ -1,0 +1,21 @@
+<html lang="pt-br">
+<%- include("./partials/head.ejs") %>
+
+<body>
+	<%- include("./partials/nav.ejs") %>
+
+	<div>
+		<form action="/" method="POST">
+			<label for="titulo">Título do post:</label>
+			<input type="text" id="titulo" name="titulo" required>
+			<label for="chamada">Chamada:</label>
+			<input type="text" id="chamada" name="chamada" required>
+			<label for="corpo">Corpo:</label>
+			<textarea id="corpo" name="corpo" required></textarea>
+			<button>Enviar</button>
+		</form>
+	</div>
+
+	<%- include("./partials/footer.ejs") %>
+</body>
+</html>

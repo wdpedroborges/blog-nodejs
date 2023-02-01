@@ -1,0 +1,25 @@
+<html lang="pt-br">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div>
+    <h2>Posts</h2>
+
+    <% if (posts.length > 0) { %>
+      <% posts.forEach(post => { %>
+        <a href="/<%= post._id %>">
+          <h3><%= post.titulo %></h3>
+          <p><%= post.chamada %></p>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>Nenhum post foi feito ainda...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
